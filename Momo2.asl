@@ -1,47 +1,30 @@
 state("momodora2")
 {
 
-	// Current room number
 	short room : 0x1AF2F8;
 
+	byte Fade : 0x1AF287;
 
-	// X and Y position of the character (Relative to the current room, top left corner is 0, 0)
 	double xPos : 0x01AF2F4, 0x80, 0x158, 0x0, 0x58;
 	double yPos : 0x01AF2F4, 0x80, 0x158, 0x0, 0x60;
 
-
-	// Whether the player can move or not
 	double LockedMovement : 0x0189720, 0x4, 0x1000;
 
-
-	// Character current health
 	double Health : 0x0189720, 0x4, 0xAD8;
 
-
-	// Ammount of blessings the player has collected
 	double Blessings : 0x0189720, 0x4, 0x1078;
 
-
-	// Upgrades
-	// Charms
 	double CharmOne : 0x0189720, 0x4, 0x1168;
 	double CharmTwo : 0x0189720, 0x4, 0x13C0;
 
-	// Double jump
 	double DoubleJump : 0x0189720, 0x4, 0x11E0;
 
-	// Dash
 	double Dash : 0x0189720, 0x4, 0x1348;
 
-	// Green leaf
 	double GreenLeaf : 0x0189720, 0x4, 0x1460;
 
-
-	// Eri's Health
 	double EriHealth : 0x01AF2F4, 0x80, 0x274, 0x0, 0x10C, 0x4, 0x10;
 
-	
-	// Final Boss third phase active
 	byte BossActive : 0x0189720, 0x4, 0xF58;
 }
 
@@ -101,7 +84,11 @@ update
 start
 {
 
+	if (current.room == 13 && current.Fade == 10)
+	{
 
+		return true;
+	}
 }
 
 
