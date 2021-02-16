@@ -84,22 +84,14 @@ update
 start
 {
 
-	if (current.room == 13 && current.Fade == 10)
-	{
-
-		return true;
-	}
+	return current.room == 13 && current.Fade == 10;
 }
 
 
 reset
 {
 
-    	if (current.room == 0)
-    	{
-
-        	return true;
-    	}
+        return current.room == 0;
 }
 
 
