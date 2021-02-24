@@ -84,7 +84,7 @@ update
 start
 {
 
-	return current.room == 13 && current.Fade == 10;
+	return current.room == 13 && current.Fade != 255;
 }
 
 
