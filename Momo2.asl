@@ -1,5 +1,4 @@
 state("momodora2") {
-
 	short room : 0x1AF2F8;
 
 	double CanPress : 0x1AF2F4, 0x80, 0xBC, 0x0, 0x10C, 0x4, 0x240;
@@ -12,7 +11,6 @@ state("momodora2") {
 }
 
 startup {
-
 	settings.Add("meiko", true, "Meiko CutScene");
 
 	settings.Add("bosses", true, "Bosses");
@@ -39,7 +37,6 @@ startup {
 }
 
 init {
-
 	// HashSet to hold splits already hit
 	vars.Splits = new HashSet<string>();
 
@@ -48,7 +45,6 @@ init {
 }
 
 update {
-
 	// Clear any hit splits if timer stops
 	if (timer.CurrentPhase == TimerPhase.NotRunning)
 		vars.Splits.Clear();
@@ -68,17 +64,14 @@ update {
 }
  
 start {
-
 	return (old.CanPress == 1 && current.CanPress == 0);
 }
 
 reset {
-
     return (current.room == 0);
 }
 
 split {
-
 	// Event flags
 	foreach (string key in vars.Flags.Keys) {
 		if (vars.Flags[key].Old != vars.Flags[key].Current) {
@@ -91,7 +84,7 @@ split {
 	}
 
 	// Eri 1
-	if (current.room == 20 && current.EriHealth <= 10 && old.EriHealth > 10) {
+	if (current.room == 20 && current.Eri <= 10 && old.Eri > 10) {
 		if (vars.Splits.Contains("eri1"))
 			return false;
 
